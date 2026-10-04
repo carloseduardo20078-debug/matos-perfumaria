@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matos Perfumaria | Perfumes Árabes</title>
+  <meta name="description" content="Matos Perfumaria: perfumes árabes, entrega para todo o Brasil e promoção especial. A cada 8 perfumes, o 9º é grátis, conforme as regras da promoção.">
+
+  <style>
+    /* CONFIGURAÇÕES GERAIS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --dourado: #d4af62;
+      --dourado-claro: #f4d995;
+      --preto: #090909;
+      --cinza: #171717;
+      --branco: #fff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--preto);
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* CABEÇALHO */
+    header {
+      background: #080808;
+      border-bottom: 1px solid #554322;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      color: var(--dourado);
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #ddd;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--dourado);
+    }
+
+    /* DESTAQUE PRINCIPAL */
+    .hero {
+      min-height: 610px;
+      padding: 85px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+      background:
+        radial-gradient(
+          ellipse at 80% 50%,
+          #4b371b55,
+          transparent 60%
+        ),
+        #090909;
+    }
+
+    .hero-text {
+      max-width: 620px;
+    }
+
+    .etiqueta {
+      color: var(--dourado);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.12;
+      margin-bottom: 25px;
+    }
+
+    .destaque {
+      color: var(--dourado);
+    }
+
+    .hero p {
+      color: #ccc;
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    .hero-image {
+      width: 42%;
+      max-width: 450px;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #80652e;
+      box-shadow: 0 0 45px #d4af6222;
+    }
+
+    /* BOTÕES */
+    .botao {
+      display: inline-block;
+      background: var(--dourado);
+      color: #111;
+      padding: 15px 28px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: .3s;
+      margin: 5px;
+      text-align: center;
+    }
+
+    .botao:hover {
+      background: var(--dourado-claro);
+      transform: translateY(-3px);
+    }
+
+    .botao-outline {
+      background: transparent;
+      border: 1px solid var(--dourado);
+      color: var(--dourado);
+    }
+
+    .botao-outline:hover {
+      background: var(--dourado);
+      color: #111;
+    }
+
+    /* SEÇÕES */
+    section {
+      padding: 80px 8%;
+    }
+
+    .titulo {
+      font-size: 38px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: #bbb;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      font-size: 17px;
+    }
+
+    /* SOBRE A LOJA */
+    .sobre {
+      text-align: center;
+      background: #151515;
+    }
+
+    .sobre p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.9;
+    }
+
+    /* PROMOÇÃO */
+    .promocao {
+      text-align: center;
+      background:
+        radial-gradient(
+          ellipse at center,
+          #49351b,
+          #100e0a 75%
+        );
+      border-top: 1px solid #604b27;
+      border-bottom: 1px solid #604b27;
+    }
+
+    .selo {
+      display: inline-block;
+      padding: 9px 20px;
+      border: 1px solid var(--dourado);
+      border-radius: 30px;
+      color: var(--dourado-claro);
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .promocao h2 {
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .numero-destaque {
+      display: inline-block;
+      color: var(--dourado);
+      font-size: 1.35em;
+      font-weight: bold;
+    }
+
+    .promocao p {
+      color: #e1d9ca;
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+
+    .regra {
+      color: #b9ac92 !important;
+      font-size: 13px !important;
+      margin-top: 20px !important;
+    }
+
+    /* ENTREGA */
+    .entrega {
+      background: #101010;
+      text-align: center;
+    }
+
+    .entrega-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 45px 25px;
+      border: 1px solid #5a4827;
+      border-radius: 12px;
+      background: linear-gradient(
+        145deg,
+        #1c1a15,
+        #101010
+      );
+    }
+
+    .entrega-icone {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .entrega h2 {
+      font-size: 34px;
+      color: var(--dourado);
+      margin-bottom: 15px;
+    }
+
+    .entrega p {
+      color: #ccc;
+      font-size: 18px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais {
+      background: #151515;
+    }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .diferencial {
+      text-align: center;
+      padding: 32px 20px;
+      border: 1px solid #40351f;
+      border-radius: 8px;
+      background: #101010;
+      transition: .3s;
+    }
+
+    .diferencial:hover {
+      transform: translateY(-5px);
+      border-color: var(--dourado);
+    }
+
+    .icone {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .diferencial h3 {
+      color: var(--dourado);
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .diferencial p {
+      color: #bbb;
+    }
+
+    /* CONTATO */
+    .contato {
+      text-align: center;
+      background:
+        radial-gradient(
+          ellipse at center,
+          #302410,
+          #090909 75%
+        );
+    }
+
+    .contato p {
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .redes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* RODAPÉ */
+    footer {
+      background: #050505;
+      border-top: 1px solid #554322;
+      padding: 30px 8%;
+      text-align: center;
+      color: #aaa;
+    }
+
+    footer strong {
+      color: var(--dourado);
+      font-size: 20px;
+    }
+
+    /* WHATSAPP FIXO */
+    .whatsapp-flutuante {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 200;
+      background: #25d366;
+      color: white;
+      border-radius: 40px;
+      padding: 14px 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px #0008;
+      transition: .3s;
+    }
+
+    .whatsapp-flutuante:hover {
+      background: #1eae53;
+      transform: translateY(-3px);
+    }
+
+    /* CELULAR */
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 6%;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 380px;
+        height: 330px;
+      }
+
+      .diferenciais-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .titulo {
+        font-size: 30px;
+      }
+
+      .entrega h2 {
+        font-size: 27px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .logo {
+        font-size: 19px;
+      }
+
+      nav {
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .botao {
+        display: block;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="logo">MATOS PERFUMARIA</div>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Nossa loja</a>
+      <a href="#promocao">Promoção</a>
+      <a href="#entrega">Entregas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="hero" id="inicio">
+
+      <div class="hero-text">
+
+        <div class="etiqueta">
+          A essência do luxo
+        </div>
+
+        <h1>
+          Descubra o mundo dos
+          <span class="destaque">
+            perfumes árabes
+          </span>
+        </h1>
+
+        <p>
+          Elegância, personalidade e sofisticação
+          em cada fragrância.
+
+          Encontre sua essência e descubra
+          uma nova experiência olfativa
+          com a Matos Perfumaria.
+        </p>
+
+        <a class="botao" href="#promocao">
+          Conheça nossa promoção
+        </a>
+
+        <a
+          class="botao botao-outline"
+          href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!%20Gostaria%20de%20conhecer%20os%20perfumes."
+          target="_blank"
+          rel="noopener"
+        >
+          Fale conosco
+        </a>
+
+      </div>
+
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=900"
+        alt="Frasco de perfume sofisticado"
+      >
+
+    </section>
+
+    <!-- SOBRE A LOJA -->
+    <section class="sobre" id="sobre">
+
+      <h2 class="titulo">
+        <span class="destaque">Matos</span> Perfumaria
+      </h2>
+
+      <p>
+        Seja bem-vindo à Matos Perfumaria!
+
+        Somos apaixonados pelo universo das
+        fragrâncias árabes e pela arte de
+        transformar aromas em experiências
+        inesquecíveis.
+
+        Nossa missão é levar elegância,
+        personalidade e sofisticação
+        até você.
+
+        Descubra o encanto dos perfumes
+        árabes e encontre uma fragrância
+        que combine com seu estilo.
+      </p>
+
+    </section>
+
+    <!-- PROMOÇÃO -->
+    <section class="promocao" id="promocao">
+
+      <div class="selo">
+        PROMOÇÃO ESPECIAL
+      </div>
+
+      <h2>
+        Compre <span class="numero-destaque">8</span>
+        perfumes e ganhe o
+        <span class="numero-destaque">9º</span>
+        grátis!
+      </h2>
+
+      <p>
+        Na Matos Perfumaria, sua coleção
+        pode ficar ainda mais completa.
+
+        Comprando 8 perfumes, você ganha
+        o 9º gratuitamente, respeitando
+        a mesma faixa de valores dos
+        outros 8 perfumes.
+      </p>
+
+      <a
+        class="botao"
+        href="https://wa.me/5511978590915?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20promo%C3%A7%C3%A3o%20dos%209%20perfumes."
+        target="_blank"
+        rel="noopener"
+      >
+        Aproveitar promoção
+      </a>
+
+      <p class="regra">
+        Consulte as condições da promoção
+        diretamente com nossa equipe.
+      </p>
+
+    </section>
+
+    <!-- ENTREGA -->
+    <section class="entrega" id="entrega">
+
+      <div class="entrega-card">
+
+        <div class="entrega-icone">
+          🇧🇷
+        </div>
+
+        <h2>
+          Entregamos em todo o Brasil!
+        </h2>
+
+        <p>
+          Não importa onde você esteja:
+          a Matos Perfumaria leva o universo
+          dos perfumes árabes até você.
+
+          Entre em contato para consultar
+          as opções, os prazos e os valores
+          de entrega para sua região.
+        </p>
+
+        <a
+          class="botao"
+          href="https://wa.me/5511978590915?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20entrega%20para%20minha%20regi%C3%A3o."
+          target="_blank"
+          rel="noopener"
+        >
+          Consultar entrega
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais">
+
+      <h2 class="titulo">
+        Por que escolher a
+        <span class="destaque">Matos?</span>
+      </h2>
+
+      <p class="subtitulo">
+        Seu próximo perfume favorito
+        pode estar aqui.
+      </p>
+
+      <div class="diferenciais-grid">
+
+        <div class="diferencial">
+
+          <div class="icone">🕌</div>
+
+          <h3>Perfumes árabes</h3>
+
+          <p>
+            Conheça a riqueza e a
+            personalidade das fragrâncias
+            árabes.
+          </p>
+
+        </div>
+
+        <div class="diferencial">
+
+          <div class="icone">🎁</div>
+
+          <h3>Promoção especial</h3>
+
+          <p>
+            Compre 8 perfumes e ganhe
+            o 9º, seguindo as condições
+            da promoção.
+          </p>
+
+        </div>
+
+        <div class="diferencial">
+
+          <div class="icone">🚚</div>
+
+          <h3>Entrega nacional</h3>
+
+          <p>
+            Enviamos para todo o Brasil.
+            Consulte os detalhes
+            de envio pelo WhatsApp.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+
+      <h2 class="titulo">
+        Vamos encontrar sua
+        <span class="destaque">essência?</span>
+      </h2>
+
+      <p>
+        Fale com a Matos Perfumaria
+        e conheça nossas fragrâncias.
+      </p>
+
+      <div class="redes">
+
+        <a
+          class="botao"
+          href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!%20Vim%20pelo%20site."
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+
+        <a
+          class="botao botao-outline"
+          href="https://www.instagram.com/matos.perfumaria/"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+
+    <p>
+      <strong>MATOS PERFUMARIA</strong>
+    </p>
+
+    <p>
+      A essência do luxo em perfumes árabes.
+    </p>
+
+    <p>
+      © <span id="ano"></span>
+      Matos Perfumaria.
+      Todos os direitos reservados.
+    </p>
+
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a
+    class="whatsapp-flutuante"
+    href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!"
+    target="_blank"
+    rel="noopener"
+    aria-label="Conversar com a Matos Perfumaria pelo WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Atualiza o ano automaticamente
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+
+    // Mensagem de boas-vindas no console
+    console.log(
+      "Bem-vindo à Matos Perfumaria!"
+    );
+  </script>
+
+</body>
+</html>
