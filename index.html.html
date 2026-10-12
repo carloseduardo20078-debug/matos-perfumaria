@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matos Perfumaria | Perfumes Árabes</title>
+  <meta name="description" content="Matos Perfumaria: descubra perfumes árabes, consulte nossa promoção e receba em todo o Brasil. A cada 9 perfumes comprados, o 10º é grátis, conforme as condições da promoção.">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    :root{--gold:#d4af62;--gold-light:#f4d995;--black:#090909;--panel:#151515;--white:#fff;--muted:#c6c0b5}
+    body{font-family:Arial,sans-serif;background:var(--black);color:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    button,a{ -webkit-tap-highlight-color:transparent}
+    header{background:#080808f5;border-bottom:1px solid #554322;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .logo{color:var(--gold);font-size:22px;font-weight:800;letter-spacing:1.4px;white-space:nowrap}
+    nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    nav a{color:#ddd;font-size:14px;transition:.2s}
+    nav a:hover,nav a:focus{color:var(--gold)}
+    .hero{min-height:570px;padding:76px 8%;display:flex;align-items:center;justify-content:space-between;gap:42px;background:radial-gradient(ellipse at 80% 50%,#4b371b55,transparent 60%),#090909}
+    .hero-text{max-width:620px}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:12px;margin-bottom:18px}
+    h1{font-size:clamp(38px,5.7vw,66px);line-height:1.1;margin-bottom:22px}
+    .gold{color:var(--gold)}
+    .hero p{color:#ccc;font-size:18px;margin-bottom:24px}
+    .hero-image{width:40%;max-width:430px;height:420px;object-fit:cover;border-radius:12px;border:1px solid #80652e;box-shadow:0 0 45px #d4af6222}
+    .button{display:inline-block;background:var(--gold);color:#111;padding:13px 22px;border:1px solid var(--gold);border-radius:6px;font-weight:700;transition:.25s;margin:5px 5px 5px 0;text-align:center;cursor:pointer}
+    .button:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px)}
+    .button-outline{background:transparent;color:var(--gold)}
+    .button-outline:hover{background:var(--gold);color:#111}
+    section{padding:72px 8%}
+    .section-title{text-align:center;font-size:clamp(28px,4vw,38px);margin-bottom:14px}
+    .subtitle{text-align:center;color:#bbb;max-width:720px;margin:0 auto 34px;font-size:16px}
+    .about{text-align:center;background:var(--panel)}
+    .about p{max-width:850px;margin:auto;color:#ccc;font-size:17px;line-height:1.9}
+    .promo{text-align:center;background:radial-gradient(ellipse at center,#49351b,#100e0a 75%);border-block:1px solid #604b27}
+    .badge{display:inline-block;padding:8px 18px;border:1px solid var(--gold);border-radius:30px;color:var(--gold-light);letter-spacing:2px;font-size:12px;margin-bottom:18px}
+    .promo h2{font-size:clamp(30px,5vw,52px);line-height:1.2;margin-bottom:18px}
+    .promo p{color:#e1d9ca;font-size:17px;max-width:720px;margin:0 auto 22px}
+    .fine-print{color:#b9ac92!important;font-size:12px!important;margin-top:16px!important}
+    .tabs-section{background:#101010}
+    .tabs{max-width:980px;margin:auto}
+    .tab-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+    .tab-button{background:#191919;color:#ddd;border:1px solid #4b3b20;border-radius:8px;padding:12px 18px;cursor:pointer;transition:.2s}
+    .tab-button[aria-selected="true"],.tab-button:hover{background:var(--gold);color:#111;border-color:var(--gold);font-weight:bold}
+    .tab-panel{background:#171717;border:1px solid #40351f;border-radius:12px;padding:clamp(20px,4vw,34px);min-height:225px}
+    .tab-panel h3{color:var(--gold);font-size:24px;margin-bottom:10px}
+    .tab-panel p{color:#ccc;margin-bottom:14px}
+    .tab-panel ul{padding-left:20px;color:#ddd}
+    .tab-panel li{margin:6px 0}
+    .calculator{max-width:620px;margin:25px auto 0;background:#0d0d0d;border:1px solid #554322;border-radius:12px;padding:22px}
+    .calculator label{display:block;text-align:left;color:var(--gold-light);font-weight:bold;margin-bottom:8px}
+    .calculator input{width:100%;padding:12px;border:1px solid #6b552d;border-radius:6px;background:#181818;color:#fff;margin-bottom:14px}
+    .calc-result{background:#1d1a13;border-radius:8px;padding:16px;color:#f1e4c8;text-align:left}
+    .calc-result strong{color:var(--gold-light)}
+    .delivery{text-align:center;background:#151515}
+    .delivery-card{max-width:850px;margin:auto;padding:38px 24px;border:1px solid #5a4827;border-radius:12px;background:linear-gradient(145deg,#1c1a15,#101010)}
+    .delivery-icon{font-size:48px;margin-bottom:10px}
+    .delivery h2{font-size:30px;color:var(--gold);margin-bottom:12px}
+    .delivery p{color:#ccc;font-size:17px;max-width:650px;margin:0 auto 18px}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature{padding:28px 20px;border:1px solid #40351f;border-radius:10px;background:#101010;text-align:center;transition:.25s}
+    .feature:hover{transform:translateY(-5px);border-color:var(--gold)}
+    .icon{font-size:36px;margin-bottom:10px}
+    .feature h3{color:var(--gold);margin-bottom:10px}
+    .feature p{color:#bbb}
+    .faq{background:#101010}
+    .faq-list{max-width:820px;margin:auto}
+    details{border:1px solid #44371f;border-radius:8px;margin:10px 0;background:#171717;overflow:hidden}
+    summary{cursor:pointer;list-style:none;padding:17px 20px;color:var(--gold-light);font-weight:bold}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";float:right;font-size:20px}
+    details[open] summary::after{content:"−"}
+    details p{padding:0 20px 18px;color:#ccc}
+    .contact{text-align:center;background:radial-gradient(ellipse at center,#302410,#090909 75%)}
+    .contact p{color:#ccc;font-size:17px;margin-bottom:22px}
+    .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    footer{background:#050505;border-top:1px solid #554322;padding:28px 8%;text-align:center;color:#aaa}
+    footer strong{color:var(--gold);font-size:20px}
+    .whatsapp-float{position:fixed;bottom:20px;right:18px;z-index:200;background:#25d366;color:white;border-radius:40px;padding:13px 18px;font-weight:bold;box-shadow:0 4px 15px #0008;transition:.2s}
+    .whatsapp-float:hover{background:#1eae53;transform:translateY(-3px)}
+    .small-note{font-size:12px;color:#b7aa91;margin-top:12px}
+    @media(max-width:850px){
+      header{flex-direction:column;padding:14px 5%}
+      nav{justify-content:center;gap:12px}
+      .hero{flex-direction:column-reverse;text-align:center;padding:48px 6%}
+      .hero-image{width:100%;max-width:380px;height:300px}
+      .features-grid{grid-template-columns:1fr}
+      section{padding:55px 6%}
+    }
+    @media(max-width:430px){.logo{font-size:18px}nav{gap:9px}nav a{font-size:13px}.button{width:100%;margin:6px 0}.tab-button{flex:1 1 40%}.whatsapp-float{right:10px;bottom:10px;padding:11px 14px}}
+  </style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#inicio" aria-label="Matos Perfumaria, início">MATOS PERFUMARIA</a>
+  <nav aria-label="Navegação principal">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Nossa loja</a>
+    <a href="#promocao">Promoção</a>
+    <a href="#experiencia">Descubra</a>
+    <a href="#entrega">Entregas</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <div class="eyebrow">A essência do luxo</div>
+      <h1>Descubra o mundo dos <span class="gold">perfumes árabes</span></h1>
+      <p>Elegância, personalidade e sofisticação em cada fragrância. Explore novas famílias olfativas e encontre uma essência que combine com você.</p>
+      <a class="button" href="#experiencia">Descobrir minha fragrância</a>
+      <a class="button button-outline" href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!%20Gostaria%20de%20conhecer%20os%20perfumes." target="_blank" rel="noopener">Fale conosco</a>
+    </div>
+    <img class="hero-image" src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=900" alt="Frasco de perfume sofisticado" loading="lazy">
+  </section>
+
+  <section class="about" id="sobre">
+    <h2 class="section-title"><span class="gold">Matos</span> Perfumaria</h2>
+    <p>Seja bem-vindo à Matos Perfumaria! Somos apaixonados pelo universo das fragrâncias árabes e pela arte de transformar aromas em experiências inesquecíveis. Nossa missão é levar elegância, personalidade e sofisticação até você.</p>
+  </section>
+
+  <section class="promo" id="promocao">
+    <div class="badge">PROMOÇÃO ESPECIAL</div>
+    <h2>Compre <span class="gold">9</span> perfumes e ganhe o <span class="gold">10º grátis!</span></h2>
+    <p>A cada 9 perfumes elegíveis comprados, você ganha o 10º gratuitamente, conforme as condições da promoção. Fale com nossa equipe para confirmar os perfumes participantes e a faixa de valor aplicável.</p>
+    <a class="button" href="https://wa.me/5511978590915?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20a%20promo%C3%A7%C3%A3o%3A%20a%20cada%209%20perfumes%2C%20o%2010%C2%BA%20%C3%A9%20gr%C3%A1tis." target="_blank" rel="noopener">Quero aproveitar a promoção</a>
+    <p class="fine-print">Consulte as condições, os produtos participantes e a faixa de preço com nossa equipe antes da compra.</p>
+  </section>
+
+  <section class="tabs-section" id="experiencia">
+    <h2 class="section-title">Sua experiência <span class="gold">Matos</span></h2>
+    <p class="subtitle">Explore as abas, descubra estilos de fragrância e calcule sua promoção.</p>
+    <div class="tabs">
+      <div class="tab-list" role="tablist" aria-label="Descubra a Matos Perfumaria">
+        <button class="tab-button" id="tab-perfis" role="tab" aria-selected="true" aria-controls="panel-perfis" type="button">Descubra seu estilo</button>
+        <button class="tab-button" id="tab-promocao" role="tab" aria-selected="false" aria-controls="panel-promocao" type="button" tabindex="-1">Calculadora da promoção</button>
+        <button class="tab-button" id="tab-cuidados" role="tab" aria-selected="false" aria-controls="panel-cuidados" type="button" tabindex="-1">Dicas de uso</button>
+      </div>
+      <div class="tab-panel" id="panel-perfis" role="tabpanel" aria-labelledby="tab-perfis">
+        <h3>Qual é a sua vibe?</h3>
+        <p>Escolha o estilo que mais combina com você para receber uma sugestão de família olfativa.</p>
+        <div class="tab-list" aria-label="Estilos de fragrância">
+          <button class="tab-button style-choice" type="button" data-style="doce">Doce e envolvente 🍯</button>
+          <button class="tab-button style-choice" type="button" data-style="amadeirado">Intenso e amadeirado 🪵</button>
+          <button class="tab-button style-choice" type="button" data-style="fresco">Fresco e elegante 🍃</button>
+          <button class="tab-button style-choice" type="button" data-style="floral">Floral e sofisticado 🌹</button>
+        </div>
+        <p id="style-result" aria-live="polite">Toque em um estilo para descobrir por onde começar.</p>
+        <a class="button" id="style-whatsapp" href="https://wa.me/5511978590915?text=Ol%C3%A1!%20Quero%20ajuda%20para%20encontrar%20meu%20estilo%20de%20perfume." target="_blank" rel="noopener">Me ajude a escolher</a>
+      </div>
+      <div class="tab-panel" id="panel-promocao" role="tabpanel" aria-labelledby="tab-promocao" hidden>
+        <h3>Calcule sua promoção</h3>
+        <p>Informe quantos perfumes participantes você pretende comprar. Esta calculadora é uma estimativa informativa; confirme as regras com a loja.</p>
+        <div class="calculator">
+          <label for="perfume-count">Quantidade de perfumes comprados</label>
+          <input id="perfume-count" type="number" min="0" max="1000" step="1" value="9" inputmode="numeric">
+          <div class="calc-result" id="calc-result" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-cuidados" role="tabpanel" aria-labelledby="tab-cuidados" hidden>
+        <h3>Como aproveitar melhor seu perfume</h3>
+        <ul>
+          <li>Aplique em pontos de pulsação, como pulsos e pescoço.</li>
+          <li>Evite esfregar a pele após aplicar, para não alterar a evolução da fragrância.</li>
+          <li>Guarde o frasco longe do sol, do calor e da umidade.</li>
+          <li>Experimente a fragrância na pele e espere alguns minutos para perceber sua evolução.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="delivery" id="entrega">
+    <div class="delivery-card">
+      <div class="delivery-icon">🇧🇷</div>
+      <h2>Entregamos em todo o Brasil!</h2>
+      <p>Consulte as opções de envio, os prazos e os valores para sua região diretamente com nossa equipe.</p>
+      <a class="button" href="https://wa.me/5511978590915?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20entrega%20para%20minha%20regi%C3%A3o." target="_blank" rel="noopener">Consultar entrega</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">Por que escolher a <span class="gold">Matos?</span></h2>
+    <p class="subtitle">Sua próxima fragrância favorita pode estar aqui.</p>
+    <div class="features-grid">
+      <article class="feature"><div class="icon">🕌</div><h3>Perfumes árabes</h3><p>Descubra fragrâncias marcantes, envolventes e cheias de personalidade.</p></article>
+      <article class="feature"><div class="icon">🎁</div><h3>Promoção especial</h3><p>A cada 9 perfumes participantes comprados, o 10º é grátis, conforme as condições.</p></article>
+      <article class="feature"><div class="icon">🚚</div><h3>Entrega nacional</h3><p>Consulte pelo WhatsApp os detalhes de envio para sua região.</p></article>
+    </div>
+  </section>
+
+  <section class="faq" id="duvidas">
+    <h2 class="section-title">Dúvidas <span class="gold">frequentes</span></h2>
+    <p class="subtitle">Clique em uma pergunta para ver a resposta.</p>
+    <div class="faq-list">
+      <details><summary>Como funciona a promoção?</summary><p>A cada 9 perfumes participantes comprados, o 10º é grátis. Confirme com nossa equipe quais produtos participam e as condições aplicáveis.</p></details>
+      <details><summary>Vocês entregam no meu estado?</summary><p>Realizamos envios para todo o Brasil. Fale conosco para consultar prazo, disponibilidade e valor de entrega para seu CEP.</p></details>
+      <details><summary>Como escolho uma fragrância?</summary><p>Use a aba “Descubra seu estilo” nesta página e depois fale com nossa equipe para receber ajuda com as opções disponíveis.</p></details>
+      <details><summary>Como faço um pedido?</summary><p>Clique em qualquer botão do WhatsApp para conversar com a Matos Perfumaria e consultar os produtos disponíveis.</p></details>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <h2 class="section-title">Vamos encontrar sua <span class="gold">essência?</span></h2>
+    <p>Fale com a Matos Perfumaria e conheça as fragrâncias disponíveis.</p>
+    <div class="socials">
+      <a class="button" href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="button button-outline" href="https://www.instagram.com/matos.perfumaria/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <p><strong>MATOS PERFUMARIA</strong></p>
+  <p>A essência do luxo em perfumes árabes.</p>
+  <p>© <span id="year"></span> Matos Perfumaria. Todos os direitos reservados.</p>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/5511978590915?text=Ol%C3%A1%2C%20Matos%20Perfumaria!" target="_blank" rel="noopener" aria-label="Conversar com a Matos Perfumaria pelo WhatsApp">WhatsApp</a>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Abas acessíveis: clique e navegação por teclado.
+  const tabButtons = [...document.querySelectorAll('[role="tab"]')];
+  const tabPanels = [...document.querySelectorAll('[role="tabpanel"]')];
+  function activateTab(button) {
+    tabButtons.forEach(tab => {
+      const selected = tab === button;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    tabPanels.forEach(panel => {
+      panel.hidden = panel.id !== button.getAttribute('aria-controls');
+    });
+    button.focus();
+  }
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => activateTab(button));
+    button.addEventListener('keydown', event => {
+      if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabButtons.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + tabButtons.length) % tabButtons.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabButtons.length - 1;
+      activateTab(tabButtons[next]);
+    });
+  });
+
+  const styleDetails = {
+    doce: {
+      text: 'Você pode gostar de notas adocicadas, como baunilha, âmbar e acordes gourmand. Peça à equipe opções doces e envolventes.',
+      message: 'Olá! Gosto de perfumes doces e envolventes. Quais opções vocês recomendam?'
+    },
+    amadeirado: {
+      text: 'Explore fragrâncias com notas amadeiradas, especiadas e de âmbar, ideais para quem busca presença e profundidade.',
+      message: 'Olá! Procuro perfumes intensos e amadeirados. Quais opções vocês recomendam?'
+    },
+    fresco: {
+      text: 'Você pode preferir acordes cítricos, aromáticos e limpos, ótimos para uma sensação fresca e elegante.',
+      message: 'Olá! Procuro perfumes frescos e elegantes. Quais opções vocês recomendam?'
+    },
+    floral: {
+      text: 'Experimente composições florais com rosas e flores brancas para um perfil elegante e sofisticado.',
+      message: 'Olá! Procuro perfumes florais e sofisticados. Quais opções vocês recomendam?'
+    }
+  };
+  const styleResult = document.getElementById('style-result');
+  const styleWhatsapp = document.getElementById('style-whatsapp');
+  document.querySelectorAll('.style-choice').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = styleDetails[button.dataset.style];
+      styleResult.textContent = item.text;
+      styleWhatsapp.href = 'https://wa.me/5511978590915?text=' + encodeURIComponent(item.message);
+      document.querySelectorAll('.style-choice').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    });
+  });
+
+  // A cada 9 perfumes elegíveis comprados, 1 unidade grátis.
+  const countInput = document.getElementById('perfume-count');
+  const calcResult = document.getElementById('calc-result');
+  function updateCalculator() {
+    let count = Number.parseInt(countInput.value, 10);
+    if (!Number.isFinite(count) || count < 0) count = 0;
+    count = Math.min(count, 1000);
+    const free = Math.floor(count / 9);
+    const total = count + free;
+    const untilNext = count % 9 === 0 ? 9 : 9 - (count % 9);
+    calcResult.innerHTML = '<strong>Perfumes comprados:</strong> ' + count +
+      '<br><strong>Perfumes grátis estimados:</strong> ' + free +
+      '<br><strong>Total de unidades:</strong> ' + total +
+      '<br><strong>Faltam para ganhar o próximo:</strong> ' + untilNext;
+  }
+  countInput.addEventListener('input', updateCalculator);
+  updateCalculator();
+
+  // FAQ: manter somente uma resposta aberta por vez.
+  document.querySelectorAll('.faq-list details').forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        document.querySelectorAll('.faq-list details').forEach(other => {
+          if (other !== detail) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
